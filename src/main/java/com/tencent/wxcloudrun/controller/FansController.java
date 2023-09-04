@@ -1,12 +1,10 @@
 package com.tencent.wxcloudrun.controller;
 
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSON;
-import com.tencent.wxcloudrun.model.FansMsg;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -15,12 +13,12 @@ import lombok.extern.slf4j.Slf4j;
  * @Date: 2023/9/4
  */
 @RestController
-@RequestMapping("/fans")
+@RequestMapping
 @Slf4j
 public class FansController {
 
     @PostMapping("/fans/msg")
-    public String fansMsgPush(@RequestBody FansMsg msg) {
+    public String fansMsgPush(String msg) {
         log.info("fans_push_msg={}", JSON.toJSONString(msg));
         return "<xml>\n"
             + "  <ToUserName><![CDATA[toUser]]></ToUserName>\n"
